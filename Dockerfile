@@ -27,6 +27,6 @@ COPY . .
 
 RUN cp ./gui/streamlit_app.py .
 
-CMD ["streamlit", "run", "streamlit_app.py"]
+CMD ["streamlit", "run", "--server.port", "8080", "streamlit_app.py"]
 
-EXPOSE 8501
+EXPOSE 8080
