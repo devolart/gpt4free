@@ -25,6 +25,9 @@ ENV PATH="/usr/app/venv/bin:$PATH"
 COPY --from=builder /usr/app/venv ./venv
 COPY . .
 
+RUN apt-get update
+RUN apt-get install ffmpeg -y #issue 445
+
 RUN cp ./gui/streamlit_app.py .
 
 CMD ["streamlit", "run", "--server.port", "8080", "streamlit_app.py"]
